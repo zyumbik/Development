@@ -1,6 +1,4 @@
-/**
- * Created by glebsabirzanov on 21/02/16.
- */
+
 public class QuickUnion {
 
 	private int[] id;
@@ -12,18 +10,23 @@ public class QuickUnion {
 		}
 	}
 
+	private int root(int i) {
+		while (i != id[i]) {
+			i = id[i];
+		}
+		return i;
+	}
+
 	public boolean connected(int p, int q) {
-		return id[p] == id[q];
+		return root(p) == root(q);
 	}
 
 	public void union(int p, int q) {
-		int pid = id[p];
-		int qid = id[q];
-		for (int i = 0; i < id.length; i++) {
-			if (id[i] == pid) {
-				id[i] = qid;
-			}
-		}
+		int i = root(p);
+		int j = root(q);
+		id[i] = j;
 	}
+
+
 
 }
