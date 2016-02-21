@@ -1,7 +1,7 @@
 
 public class QuickUnion {
 
-	private int[] id;
+	private int[] id, sz;
 
 	public QuickUnion(int N) {
 		id = new int[N];
@@ -24,9 +24,16 @@ public class QuickUnion {
 	public void union(int p, int q) {
 		int i = root(p);
 		int j = root(q);
-		id[i] = j;
+		if (i == j) {
+			return;
+		}
+		if (sz[i] < sz[j]) {
+			id[i] = j;
+			sz[j] += sz[i];
+		} else {
+			id[j] = i;
+			sz[i] += sz[j];
+		}
 	}
-
-
 
 }
