@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class BinarySearch {
 	public static void main(String[] args) {
-		int[] a = {2, 3, 5, 12, 32, 27, 25,41, 28, 39, 15};
+		int[] a = {3, 2, 5, 12, 32, 27, 25,41, 28, 39, 15};
 
 
 		for (int i = 0; i < a.length; i++) {
